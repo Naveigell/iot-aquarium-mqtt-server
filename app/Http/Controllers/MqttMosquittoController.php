@@ -10,7 +10,7 @@ class MqttMosquittoController extends Controller
 {
     public function store()
     {
-        MQTT::publish('/aquarium/drain', json_encode(["drain" => true]));
+        MQTT::publish('/aquarium/drain/subscribe', json_encode(["drain" => true]));
 
         Drain::create();
 
