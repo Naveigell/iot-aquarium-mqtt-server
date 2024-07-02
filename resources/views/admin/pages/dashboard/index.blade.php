@@ -29,7 +29,10 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    Selamat datang di dashboard aquarium</b>.
+                    <h4>Selamat datang di dashboard aquarium.</h4>
+                    <div class="card-header-action">
+                        <a href="" class="btn btn-primary"><i class="fa fa-tint"></i> Kuras Air</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <canvas id="chart"></canvas>

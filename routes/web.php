@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Http\Controllers\DashboardController::class)->name('dashboard.index');
+Route::get('/logs', \App\Http\Controllers\LogController::class)->name('logs.index');
 Route::get('/api/details', \App\Http\Controllers\Api\DetailController::class)->name('api.details.index');
