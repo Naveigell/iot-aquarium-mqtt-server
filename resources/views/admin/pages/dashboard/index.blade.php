@@ -3,6 +3,13 @@
 @section('content-title', 'Dashboard')
 
 @section('content-body')
+    @if($drain)
+        <div class="card">
+            <div class="card-body">
+                <span>Air terakhir di kuras pada tanggal: &nbsp;&nbsp; <b>{{ $drain->created_at->format('d F Y, H:i:s') }}</b></span>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="card" style="border-bottom: 3px solid rgb(75, 192, 192);">
@@ -30,11 +37,15 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Selamat datang di dashboard aquarium.</h4>
-                    <div class="card-header-action">
-                        <a href="" class="btn btn-primary"><i class="fa fa-tint"></i> Kuras Air</a>
-                    </div>
+                    <form method="post" action="{{ route('mosquittos.store') }}" class="card-header-action">
+                        @csrf
+                        <button class="btn btn-primary"><i class="fa fa-tint"></i> Kuras Air</button>
+                    </form>
                 </div>
                 <div class="card-body">
+                    @if($message = session('success'))
+                        <x-alert.success :message="$message"></x-alert.success>
+                    @endif
                     <canvas id="chart"></canvas>
                 </div>
             </div>

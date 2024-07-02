@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Detail;
+use App\Models\Drain;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,6 +11,7 @@ class DashboardController extends Controller
     public function __invoke()
     {
         $details = Detail::latest()->take(10)->get();
+        $drain   = Drain::latest()->first();
 
         $temperatures = $details->pluck('temperature');
         $phs          = $details->pluck('ph');
@@ -18,6 +20,6 @@ class DashboardController extends Controller
         $temperature  = optional($details->first())->temperature;
         $ph           = optional($details->first())->ph;
 
-        return view('admin.pages.dashboard.index', compact('details', 'temperatures', 'phs', 'dates', 'temperature', 'ph'));
+        return view('admin.pages.dashboard.index', compact('details', 'temperatures', 'phs', 'dates', 'temperature', 'ph', 'drain'));
     }
 }

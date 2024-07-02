@@ -1,12 +1,12 @@
 @extends('layouts.admin.admin')
 
-@section('content-title', 'Log Data')
+@section('content-title', 'Log Aquarium')
 
 @section('content-body')
     <div class="col-lg-12 col-md-12 col-12 col-sm-12 no-padding-margin">
         <div class="card">
             <div class="card-header">
-                <h4>Log Data</h4>
+                <h4>Log Aquarium</h4>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive mb-3">
