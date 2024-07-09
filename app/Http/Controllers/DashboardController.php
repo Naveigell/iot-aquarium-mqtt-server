@@ -17,8 +17,8 @@ class DashboardController extends Controller
         $phs          = $details->pluck('ph');
         $dates        = $details->pluck('created_at')->map(fn($date) => $date->format('d F Y, H:i:s'));
 
-        $temperature  = optional($details->first())->temperature;
-        $ph           = optional($details->first())->ph;
+        $temperature  = optional($details->first())->temperature ?? '-';
+        $ph           = optional($details->first())->ph ?? '-';
 
         return view('admin.pages.dashboard.index', compact('details', 'temperatures', 'phs', 'dates', 'temperature', 'ph', 'drain'));
     }
